@@ -1,3 +1,4 @@
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
 import { ApplicationConfig, importProvidersFrom } from '@angular/core'
 import {
   InMemoryScrollingFeature,
@@ -5,11 +6,10 @@ import {
   provideRouter,
   withInMemoryScrolling,
 } from '@angular/router'
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
 import { routes } from './app.routes'
-import { JwtInterceptor } from './core/helper/jwt.interceptor'
 import { ErrorInterceptor } from './core/helper/error.interceptor'
 import { FakeBackendProvider } from './core/helper/fake-backend'
+import { JwtInterceptor } from './core/helper/jwt.interceptor'
 
 // Scroll
 const scrollConfig: InMemoryScrollingOptions = {
