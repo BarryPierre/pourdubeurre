@@ -20,14 +20,16 @@
                   Let's Collaborate and Achieve Greatness Together!
                 </p>
                 <p class="mt-5 text-base">
-                  Sed consequat, leo eget bibendum sodales, augue velit cursus
-                  nunc, quis gravida magna mi a libero.
+                  pour etre tenu au courant du lancementde l'application veuillez nous envoyer votre adresse e-mail via le formulaire ci-dessous. 
                 </p>
+                <input [(ngModel)]="email" type="email" id="name" name="e-mail" placeholder="name@domain.com"  size="30" class="mt-7"/>
+                <p>{{erreurMessage}}</p>
                 <div class="mt-10">
                   <a
                     href="javascript:void(0);"
                     class="inline-flex items-center justify-center gap-2 rounded-md bg-primary px-8 py-2 text-base text-white transition-all duration-300 hover:bg-primary-700"
-                    >Read More
+                    (click)="envoieDeMail()"
+                    >Envoyer
                     <lucide-angular
                       name="move-right"
                       class="size-6"
@@ -77,81 +79,6 @@
         <div
           class="mx-auto max-w-6xl rounded-xl bg-gradient-to-t from-default-50 via-default-100 to-default-200 shadow"
         >
-          <!-- <div
-            class="grid divide-y divide-default-300 lg:grid-cols-3 lg:divide-x lg:divide-y-0"
-          >
-            <div class="p-8">
-              <lucide-angular
-                name="book-copy"
-                class="size-12 text-default-950"
-              ></lucide-angular>
-              <h2 class="mt-5 text-xl font-medium text-default-950">
-                Nutritious Meals
-              </h2>
-              <p class="mt-4 text-base">
-                Praesent vestibulum dapibus nibh. Etiam iaculis nunc ac metus.
-              </p>
-              <div class="group mt-5">
-                <a
-                  href="javascript:void(0);"
-                  class="text-lg font-medium text-default-900"
-                  >Read More
-                  <lucide-angular
-                    name="move-right"
-                    class="inline-block size-6 opacity-0 transition-all duration-500 will-change-transform group-hover:translate-x-2 group-hover:opacity-100"
-                  ></lucide-angular>
-                </a>
-              </div>
-            </div>
-
-            <div class="p-8">
-              <lucide-angular
-                name="send"
-                class="size-12 text-default-950"
-              ></lucide-angular>
-              <h2 class="mt-5 text-xl font-medium text-default-950">
-                Pure Drinking Water
-              </h2>
-              <p class="mt-4 text-base">
-                Praesent vestibulum dapibus nibh. Etiam iaculis nunc ac metus.
-              </p>
-              <div class="group mt-5">
-                <a
-                  href="javascript:void(0);"
-                  class="text-lg font-medium text-default-900"
-                  >Read More
-                  <lucide-angular
-                    name="move-right"
-                    class="inline-block size-6 opacity-0 transition-all duration-500 will-change-transform group-hover:translate-x-2 group-hover:opacity-100"
-                  ></lucide-angular>
-                </a>
-              </div>
-            </div>
-
-            <div class="p-8">
-              <lucide-angular
-                name="book-copy"
-                class="size-12 text-default-950"
-              ></lucide-angular>
-              <h2 class="mt-5 text-xl font-medium text-default-950">
-                Quality Education
-              </h2>
-              <p class="mt-4 text-base">
-                Praesent vestibulum dapibus nibh. Etiam iaculis nunc ac metus.
-              </p>
-              <div class="group mt-5">
-                <a
-                  href="javascript:void(0);"
-                  class="text-lg font-medium text-default-900"
-                  >Read More
-                  <lucide-angular
-                    name="move-right"
-                    class="inline-block size-6 opacity-0 transition-all duration-500 will-change-transform group-hover:translate-x-2 group-hover:opacity-100"
-                  ></lucide-angular>
-                </a>
-              </div>
-            </div>
-          </div> -->
         </div>
       </div>
     </section>
@@ -177,10 +104,6 @@
             href="javascript:void(0);"
             class="inline-flex items-center justify-center gap-2 rounded-md bg-primary px-6 py-2 text-white transition-all duration-300 hover:bg-primary-700"
             >Read More
-            <!-- <lucide-angular
-              name="move-right"
-              class="size-6"
-            ></lucide-angular> -->
           </a>
         </div>
         <img
@@ -215,10 +138,6 @@
             href="javascript:void(0);"
             class="inline-flex items-center justify-center gap-2 rounded-md bg-primary px-6 py-2 text-white transition-all duration-300 hover:bg-primary-700"
             >Read More
-            <!-- <lucide-angular
-              name="move-right"
-              class="size-6"
-            ></lucide-angular> -->
           </a>
         </div>
         <img
@@ -253,10 +172,6 @@
             href="javascript:void(0);"
             class="inline-flex items-center justify-center gap-2 rounded-md bg-primary px-6 py-2 text-white transition-all duration-300 hover:bg-primary-700"
             >Read More
-            <!-- <lucide-angular
-              name="move-right"
-              class="size-6"
-            ></lucide-angular> -->
           </a>
         </div>
         <img
@@ -269,7 +184,6 @@
   </div>
 </section>
 <!-- End About -->
-<!-------------------------------------------------------------------------------------------------------------------------------------------------------------------->
 <!-- Start statistique -->
 <section id="about" class="py-10 lg:py-20">
   <div class="container">
@@ -344,32 +258,6 @@
 
     <!-- Section Start -->
     <section id="portfolio" class="py-10 lg:py-20">
-      <div class="container">
-        <!-- <div class="flex flex-wrap items-center justify-between gap-5">
-          <div>
-            <div class="mx-auto max-w-2xl">
-              <h2 class="mb-4 text-4xl font-medium text-default-950">
-                Our Portfolio
-              </h2>
-              <p class="text-base">
-                A visual exhibition of remarkable animal moments captured in
-                time. Each image narrates a distinct story, exalting the core
-                and vitality of animals in their full splendor.
-              </p>
-            </div>
-          </div>
-          <div>
-            <a
-              href="javascript:void(0);"
-              class="inline-flex items-center justify-center gap-2 border border-default-200 bg-primary px-6 py-2 text-white transition-all duration-300 hover:bg-primary-700"
-              >View All</a
-            >
-          </div>
-        </div> -->
-        <!-- flex End -->
-      </div>
-      <!-- container End -->
-
       <div class="mt-14">
         <div class="relative m-auto flex gap-8 overflow-hidden">
           <div
@@ -484,14 +372,7 @@
         <!-- marquee--reverse End -->
       </div>
 
-      <div class="mt-12 flex items-center justify-center">
-        <!-- <a
-          href="javascript:void(0);"
-          class="inline-flex items-center justify-center gap-2 rounded border border-default-200 px-6 py-2 text-base font-medium text-default-950 transition-all duration-300 hover:bg-primary hover:text-default-950"
-          >View More
-          <lucide-angular name="move-right" class="size-5"></lucide-angular>
-        </a> -->
-      </div>
+      
       <!-- flex End -->
     </section>
     <!-- Section end -->
@@ -519,7 +400,6 @@
         <a href="javascript:void(0);">Terms Conditions & Policy</a>
       </p>
     </div>
-    <!-- Flex End -->
   </div>
 </footer>
 <!-----------fin du footer-------------------------------------------------------------------------------------------------------------------------------------------------->

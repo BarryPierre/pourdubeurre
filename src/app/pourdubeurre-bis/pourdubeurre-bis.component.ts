@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { LUCIDE_ICONS, LucideAngularModule, LucideIconProvider, icons } from 'lucide-angular';
-
 @Component({
   selector: 'app-pourdubeurre-bis',
   standalone: true,
-  imports: [LucideAngularModule],
+  imports: [LucideAngularModule, FormsModule],
   templateUrl: './pourdubeurre-bis.component.html',
   styleUrl: './pourdubeurre-bis.component.scss',
   providers: [
@@ -16,7 +16,9 @@ import { LUCIDE_ICONS, LucideAngularModule, LucideIconProvider, icons } from 'lu
   ],
 })
 export class PourdubeurreBisComponent {
-  
+  email: string=""
+  contenuEmail: string= "@"
+  erreurMessage: string=""
   year = new Date().getFullYear()
   Solutions = [
     {
@@ -56,5 +58,16 @@ export class PourdubeurreBisComponent {
         'Adaptable layouts and immediate outcomes! Select a pre-designed header or craft a personalized layout that precisely aligns with your requirements.',
     },
   ]
-}
 
+  envoieDeMail(){
+    if (this.email.includes(this.contenuEmail)){
+          console.log ("votre e-mail à bien été envoyer")
+          this.erreurMessage=this.email + " votre mail a bient été envoyé"
+        }
+        else {
+          console.log(this.email)
+      this.erreurMessage=this.email + "votre mail est incorrect"
+        }
+    }
+  
+}
