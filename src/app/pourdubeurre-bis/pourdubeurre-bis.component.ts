@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { EnvoiedemailService } from '@services/envoiedemail.service';
 import { LUCIDE_ICONS, LucideAngularModule, LucideIconProvider, icons } from 'lucide-angular';
+
 @Component({
   selector: 'app-pourdubeurre-bis',
   standalone: true,
@@ -17,7 +19,6 @@ import { LUCIDE_ICONS, LucideAngularModule, LucideIconProvider, icons } from 'lu
 })
 export class PourdubeurreBisComponent {
   email: string=""
-  contenuEmail: string= "@"
   erreurMessage: string=""
   year = new Date().getFullYear()
   Solutions = [
@@ -59,14 +60,18 @@ export class PourdubeurreBisComponent {
     },
   ]
 
+  constructor(private emailService: EnvoiedemailService) {}
+
   envoieDeMail(){
-    if (this.email.includes(this.contenuEmail)){
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/ ; 
+    if (emailPattern.test(this.email)){
           console.log ("votre e-mail à bien été envoyer")
-          this.erreurMessage=this.email + " votre mail a bient été envoyé"
+          this.erreurMessage=this.email + " cet email a bient été envoyé"
+          this.emailService.appelDuBack(this.email)
         }
         else {
           console.log(this.email)
-      this.erreurMessage=this.email + "votre mail est incorrect"
+      this.erreurMessage=this.email + "cet email est incorrect"
         }
     }
   
