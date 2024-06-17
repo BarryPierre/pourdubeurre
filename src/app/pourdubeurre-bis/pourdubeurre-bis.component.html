@@ -14,28 +14,35 @@
         <div class="container">
           <div class="grid grid-cols-1 items-center gap-10 lg:grid-cols-2">
             <div >
-              <div class="flex flex-col justify-center">
+              <div class="flex flex-col justify-center" >
                   
                 <p class="mb-4 text-2xl font-medium text-default-950 sm:text-3xl xl:text-5xl/tight">
                   Let's Collaborate and Achieve Greatness Together!
                 </p>
-                <p class="mt-5 text-base">
-                  pour etre tenu au courant du lancementde l'application veuillez nous envoyer votre adresse e-mail via le formulaire ci-dessous. 
-                </p>
-                <input [(ngModel)]="email" type="email" id="name" name="e-mail" placeholder="name@domain.com"  size="30" class="mt-7"/>
-                <p>{{erreurMessage}}</p>
-                <div class="mt-10">
-                  <a
-                    href="javascript:void(0);"
+                <button (click)= showDiv()  href="javascript:void(0);"
+                class="inline-flex items-center justify-center gap-2 rounded-md bg-primary px-8 py-2 text-base text-white transition-all duration-300 hover:bg-primary-700 mt-10">
+                Me tenir informé !
+                  <lucide-angular name="move-right" class="size-6"></lucide-angular>
+                </button>
+                
+              @if(divIsVisible) {
+                  <div id="un">
+                    <p class="mt-5 text-base">
+                      pour etre tenu au courant du lancementde l'application veuillez nous envoyer votre adresse e-mail via le formulaire ci-dessous. 
+                    </p>
+                  <input [(ngModel)]="email" type="email" id="name" name="e-mail" placeholder="name@domain.com"  size="30" class="mt-7"/>
+                  <p>{{erreurMessage}}</p>
+                  <div class="mt-10">
+                    <button href="javascript:void(0);"
                     class="inline-flex items-center justify-center gap-2 rounded-md bg-primary px-8 py-2 text-base text-white transition-all duration-300 hover:bg-primary-700"
                     (click)="envoieDeMail()"
-                    >Envoyer
-                    <lucide-angular
-                      name="move-right"
-                      class="size-6"
-                    ></lucide-angular>
-                  </a>
-                </div>
+                    >Envoyer<lucide-angular
+                    name="move-right"
+                    class="size-6"
+                  ></lucide-angular></button>
+                  </div>
+                  </div>
+              }
               </div>
               <!-- flex End -->
             </div>

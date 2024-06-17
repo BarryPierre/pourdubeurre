@@ -74,5 +74,11 @@ export class PourdubeurreBisComponent {
       this.erreurMessage=this.email + "cet email est incorrect"
         }
     }
+
+    divIsVisible = false
+
+    showDiv() {
+      this.divIsVisible=true
+    }
   
 }
