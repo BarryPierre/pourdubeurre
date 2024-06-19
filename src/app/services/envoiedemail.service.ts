@@ -43,8 +43,4 @@ modalWarning() : void{
   
 }
 
-renvoiUnTruc() : number {
-  this.variable++
-  return 3
-}
 }

@@ -83,7 +83,4 @@ export class PourdubeurreBisComponent {
       this.divIsVisible=true
     }
   
-    multipliParDeux(n : number):number{
-      return n*2
-    }
 }
