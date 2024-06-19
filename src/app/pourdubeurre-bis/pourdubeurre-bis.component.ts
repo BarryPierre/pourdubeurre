@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { EnvoiedemailService } from '@services/envoiedemail.service';
 import { LUCIDE_ICONS, LucideAngularModule, LucideIconProvider, icons } from 'lucide-angular';
-
 @Component({
   selector: 'app-pourdubeurre-bis',
   standalone: true,
@@ -60,18 +59,21 @@ export class PourdubeurreBisComponent {
     },
   ]
 
-  constructor(private emailService: EnvoiedemailService) {}
+  constructor(private emailService: EnvoiedemailService, private erroMail: EnvoiedemailService, private validationMail: EnvoiedemailService) {}
 
   envoieDeMail(){
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/ ; 
     if (emailPattern.test(this.email)){
           console.log ("votre e-mail à bien été envoyer")
-          this.erreurMessage=this.email + " cet email a bient été envoyé"
+          // this.erreurMessage=this.email + " cet email a bient été envoyé"
+          this.validationMail.modalSuccess()
           this.emailService.appelDuBack(this.email)
         }
         else {
           console.log(this.email)
-      this.erreurMessage=this.email + "cet email est incorrect"
+      // this.erreurMessage=this.email + "cet email est incorrect"
+          this.erroMail.modalError()
+          // console.log("jgjgjhl")
         }
     }
 
@@ -81,4 +83,7 @@ export class PourdubeurreBisComponent {
       this.divIsVisible=true
     }
   
+    multipliParDeux(n : number):number{
+      return n*2
+    }
 }

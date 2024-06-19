@@ -5973,6 +5973,11 @@ svg.select.js@^3.0.1:
   dependencies:
     svg.js "^2.6.5"
 
+sweetalert2@^11.11.1:
+  version "11.11.1"
+  resolved "https://registry.npmjs.org/sweetalert2/-/sweetalert2-11.11.1.tgz"
+  integrity sha512-7jumu0I0/QdRa5R7K1mh05ZdhmsMV6rZOVtjpratZGidxyJD4Sn7rDSA+zmKHzvMef9hVTwPmDU3VxnvhVQMNg==
+
 swiper@^11.0.6:
   version "11.0.6"
   resolved "https://registry.npmjs.org/swiper/-/swiper-11.0.6.tgz"

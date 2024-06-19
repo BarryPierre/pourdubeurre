@@ -30,5 +30,5 @@ export class AppComponent {
       }
     })
     this.titleService.init()
+  } 
   }
-}
