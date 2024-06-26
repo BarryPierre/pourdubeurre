@@ -1,10 +1,8 @@
 import { Component } from '@angular/core'
-import { Event, RouterOutlet } from '@angular/router'
-import { Router } from '@angular/router'
-import { NavigationEnd } from '@angular/router'
+import { Event, NavigationEnd, Router, RouterOutlet } from '@angular/router'
+import { LoaderComponent } from '@components/loader/loader.component'
 import { IStaticMethods } from 'preline/preline'
 import { TitleService } from './core/service/title'
-import { LoaderComponent } from '@components/loader/loader.component'
 
 declare global {
   interface Window {
@@ -28,9 +26,9 @@ export class AppComponent {
       if (event instanceof NavigationEnd) {
         setTimeout(() => {
           window.HSStaticMethods.autoInit()
-        }, 100)
+        },100)
       }
     })
     this.titleService.init()
+  } 
   }
-}

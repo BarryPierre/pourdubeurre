@@ -4,7 +4,7 @@ import { PourdubeurreBisComponent } from './pourdubeurre-bis/pourdubeurre-bis.co
 export const routes: Routes = [
   
   {
-    path: 'pourdubeurrebis',
+    path: '',
     component:PourdubeurreBisComponent
   },
  
