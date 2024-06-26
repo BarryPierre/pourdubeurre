@@ -1,7 +1,7 @@
   <!-- ======= hero start ======= -->
     <section
       id="home"
-      class="relative bg-default-100 bg-[url('../images/other/bg-lines-2.png')] bg-cover bg-no-repeat py-24 dark:bg-default-50 dark:bg-[url('../images/other/bg-lines-2-dark.png')] lg:py-32"
+      class="relative bg-default-100 mb-8 bg-[url('../images/other/bg-lines-2.png')] bg-cover bg-no-repeat py-24 dark:bg-default-50 dark:bg-[url('../images/other/bg-lines-2-dark.png')] lg:py-32"
     >
       <div
         class="flex items-center overflow-hidden before:absolute before:inset-0 before:left-[63.67%] before:hidden before:rounded-bl-3xl before:bg-primary/80 lg:before:block"
@@ -15,22 +15,50 @@
           <div class="grid grid-cols-1 items-center gap-10 lg:grid-cols-2">
             <div >
               <div class="flex flex-col justify-center" >
+                <div class="row">
+                  <div class="col">
+                    <img src="/assets/images/pdb/logopdbwb.png" alt="">
+                    
+
+                  </div>
+                </div>
                   
                 <p class="mb-4 text-2xl font-medium text-default-950 sm:text-3xl xl:text-5xl/tight">
-                  Let's Collaborate and Achieve Greatness Together!
+                  Pronostiquez sur les JO de Paris 2024 pour du beurre !
                 </p>
-                <button (click)= showDiv()  href="javascript:void(0);"
-                class="inline-flex items-center justify-center gap-2 rounded-md bg-primary px-8 py-2 text-base text-white transition-all duration-300 hover:bg-primary-700 mt-10">
-                Me tenir informé !
-                  <lucide-angular name="move-right" class="size-6"></lucide-angular>
-                </button>
                 
-              @if(divIsVisible) {
+              @if(!divIsVisible || emailSend) {
+                <p class="mt-5 text-base">
+                  Vous en avez marre de ces applis de pronostiques sportifs qui vous prenne pour un produit ?! 
+                </p>
+                <p class="mt-5 text-base">
+                  On sait que ça existe déjà, mais on a remarqué que ces applis 
+                  sont remplis de publicités de sites de paris sportifs, et surtout que 
+                  le système de côtes de ces sites est reproduit. 
+                </p>
+                <p class="mt-5 text-base">
+                  On pense que les pronostiques sportifs devraient être un jeu avant tout ! C'est pour ça qu'on développe pourdubeurre.bzh 
+                </p>
+                @if(!emailSend){
+                  <div class="row">
+                    <div class="col text-center">
+                      <button (click)= showDiv() 
+                      class="inline-flex items-center justify-center gap-2 rounded-md bg-primary px-8 py-2 text-base text-white transition-all duration-300 hover:bg-primary-700 mt-10">
+                      Me tenir informé !
+                        <lucide-angular name="move-right" class="size-6"></lucide-angular>
+                      </button>
+                    </div>
+                  </div>
+                }
+                
+              }
+                
+              @if(divIsVisible && !emailSend) {
                   <div id="un">
                     <p class="mt-5 text-base">
-                      pour etre tenu au courant du lancementde l'application veuillez nous envoyer votre adresse e-mail via le formulaire ci-dessous. 
+                      pour etre prévenu du lancement des inscriptions, vers le 10 juillet, laissez nous votre e-mail. 
                     </p>
-                  <input [(ngModel)]="email" type="email" id="name" name="e-mail" placeholder="name@domain.com"  size="30" class="mt-7"/>
+                  <input [(ngModel)]="email" type="email" id="name" name="e-mail" placeholder="je laisse mon email"  size="30" class="mt-7"/>
                   <p>{{erreurMessage}}</p>
                   <div class="mt-10">
                     <button href="javascript:void(0);"
@@ -105,13 +133,14 @@
             Pour l'amour de la compétition 
           </h2>
           <p class="mb-8 mt-5 text-base">
-            Sur Pour Du beurre vous parriez vous l'amour du défis et défié les membres de votre famille, vos amis et collegue !!!!
+            Sur pourdubeurre.bzh vous pronostiquez et défiez vos amis et collegue sur des règles simples !
           </p>
-          <a
-            href="javascript:void(0);"
-            class="inline-flex items-center justify-center gap-2 rounded-md bg-primary px-6 py-2 text-white transition-all duration-300 hover:bg-primary-700"
-            >Read More
-          </a>
+          <p class=" mt-1 text-base">
+            On mise sur le comité olympique gagnant.
+          </p>
+          <p class="mb-8 mt-1 text-base">
+            1 point par médaille (or, argent, bronze).
+          </p>
         </div>
         <img
           src="/assets/images/pdb/pexels-jim-de-ramos-395808-1263349.jpg"
@@ -139,13 +168,14 @@
             Immérgez vous dans les JO
           </h2>
           <p class="mb-8 mt-5 text-base">
-            Vous pourrez pariez sur toutes les disciplines présente lors des Jeux Olympques de Paris 2024 !!!
+            Toutes les disciplines et toutes les medailles sont présente !
           </p>
-          <a
-            href="javascript:void(0);"
-            class="inline-flex items-center justify-center gap-2 rounded-md bg-primary px-6 py-2 text-white transition-all duration-300 hover:bg-primary-700"
-            >Read More
-          </a>
+          <p class=" mt-1 text-base">
+            Du breakdance au kayak
+          </p>
+          <p class="mb-8 mt-1 text-base">
+            On va montrer qu'il n'y a pas que le foot
+          </p>
         </div>
         <img
           src="/assets/images/pdb/chau-cedric--6GinD-1NwE-unsplash.jpg"
@@ -170,16 +200,22 @@
             >Juste du Fun !</span
           >
           <h2 class="mt-4 text-3xl font-medium text-default-950">
-            Le plaisir du paris sans pression !!!
+            Jouer sans pression
           </h2>
           <p class="mb-8 mt-5 text-base">
-            Avec Pour Du Beurre vous arurez les emotions du paris, 'adrénaline le chanlennge, la compétitions sans avoir besoins de parler encore et toujours d'argent !!!  
+            On veut que tous et toutes puisse jouer et proposer l'appli 
+            
+            , pas de références aux jeu d'argent, pas   
           </p>
-          <a
-            href="javascript:void(0);"
-            class="inline-flex items-center justify-center gap-2 rounded-md bg-primary px-6 py-2 text-white transition-all duration-300 hover:bg-primary-700"
-            >Read More
-          </a>
+          <p class=" mt-1 text-base">
+            Sur pourdubeurre.bzh :
+          </p>
+          <p class="mt-1 text-base">
+            pas de pubs de sites de paris sportifs
+          </p>
+          <p class="mt-1 text-base">
+            pas de références aux jeu d'argent
+          </p>
         </div>
         <img
           src="/assets/images/pdb/pexels-jill-wellington-1638660-40815.jpg"
@@ -206,18 +242,14 @@
       </div>
 
       <div class="xl:col-span-3">
-        <span
-          class="rounded-md border border-primary bg-primary/20 px-3 py-1 text-xs font-medium uppercase tracking-wider text-primary"
-          >Our About</span
-        >
         <h2 class="mt-4 text-4xl font-medium text-default-950">
-          Entrepreneur of the Year
+          Paris 2024 en .bzh
         </h2>
         <h4 class="mt-5 text-xl font-medium text-default-400">
-          Hello! I'm Diego, a self-taught and award-winning Digital Designer
-          and Developer with more than fifteen years of professional
-          experience. I began my journey in my childhood bedroom and honed
-          my skills at renowned digital agencies like nexum AG.
+          Les Jeux olympiques d'été de 2024, officiellement appelés les Jeux de la XXXIIIe olympiade, seront célébrés du 26 juillet au 11 août 2024. 
+          pourdubeurre.bzh est développé par une entreprise Quimpéroise et vous propose de vicre ces jeux en .bzh
+          
+
         </h4>
 
         <div class="mt-6 flex flex-wrap items-center gap-6">
@@ -225,33 +257,22 @@
             class="w-48 rounded-xl bg-white p-4 text-center drop-shadow-md dark:bg-default-50"
           >
             <h2 class="text-4xl font-medium text-default-950">200+</h2>
-            <p class="mt-2 text-base">Project Delivered</p>
+            <p class="mt-2 text-base">Comités olympiques</p>
           </div>
 
           <div
             class="w-48 rounded-xl bg-white p-4 text-center drop-shadow-md dark:bg-default-50"
           >
-            <h2 class="text-4xl font-medium text-default-950">20+</h2>
-            <p class="mt-2 text-base">Years of Experience</p>
+            <h2 class="text-4xl font-medium text-default-950">40+</h2>
+            <p class="mt-2 text-base">Disciplines</p>
           </div>
 
           <div
             class="w-48 rounded-xl bg-white p-4 text-center drop-shadow-md dark:bg-default-50"
           >
-            <h2 class="text-4xl font-medium text-default-950">45+</h2>
-            <p class="mt-2 text-base">Happy Clients</p>
+            <h2 class="text-4xl font-medium text-default-950">10 000+</h2>
+            <p class="mt-2 text-base">Athlètes</p>
           </div>
-        </div>
-        <div class="inline-block">
-          <a
-            href="javascript:void(0);"
-            class="mt-6 flex items-center justify-center gap-2 rounded-md border border-primary bg-primary/90 px-6 py-2 text-lg text-white transition-all hover:bg-primary"
-            >Read more
-            <lucide-angular
-              name="move-right"
-              class="size-7"
-            ></lucide-angular>
-          </a>
         </div>
       </div>
     </div>

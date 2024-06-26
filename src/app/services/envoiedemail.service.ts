@@ -1,15 +1,19 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import Swal from 'sweetalert2';
+import { environment } from '../../environment/environment';
+import { HttpClient } from '@angular/common/http';
 
+const URL_BACKEND = environment.urlBackEnd;
 @Injectable({
   providedIn: 'root'
 })
 export class EnvoiedemailService {
 
-  constructor() { }
-  appelDuBack (email:string):void{
-    console.log(email)
-}
+  constructor(private http: HttpClient) { }
+  appelDuBack (email:string): Observable<void>{
+    return this.http.post<void>(`${URL_BACKEND}/landing/email`, { email, message:"" });
+ }
 
 variable = 3;
 
