@@ -97,14 +97,15 @@
 </section>
 <!-- ======= hero end ======= -->
 <!-- ======= liste des comités Olympiques ======= -->
-<section class="py-10 lg:py-20">
-  <div class="marquee__group flex min-w-full flex-shrink-0 items-center justify-around gap-8">
-    <img class="h-72 w-full object-cover"
-      src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Flag_of_South_Africa.svg/langfr-1280px-Flag_of_South_Africa.svg.png"
-      alt="" />
-    <img class="h-72 w-full object-cover"
-      src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Flag_of_South_Africa.svg/langfr-1280px-Flag_of_South_Africa.svg.png"
-      alt="" />
+<section class="bg-yellow-500 mt-10 " >
+  <p class="mb-4 text-2xl font-medium text-default-950 sm:text-3xl xl:text-5xl/tight pt-3.5 pl-3.5 ">
+    les comités présents lors de jeux !
+  </p>
+  <div class="relative m-auto flex gap-8 overflow-scroll ">
+    @for(pays of paysList; track pays) {
+      <img [src]="pays.drapeauSvg" alt="drapeau des pays" class="size-40 object-contain">
+    }
+
   </div>
 </section>
 <!-- image 1 Start About -->
